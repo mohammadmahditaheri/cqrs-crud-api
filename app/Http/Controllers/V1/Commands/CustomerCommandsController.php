@@ -4,7 +4,7 @@ namespace App\Http\Controllers\V1\Commands;
 
 use App\Commands\CreateCustomerHandler;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateCustomerRequest;
+use App\Http\Requests\MutateCustomerRequest;
 use App\Traits\Controllers\FormatsCustomerCommandResponses;
 use App\Traits\Controllers\FormatsErrorResponses;
 use Illuminate\Http\Response;
@@ -15,7 +15,7 @@ class CustomerCommandsController extends Controller
     use FormatsErrorResponses,
         FormatsCustomerCommandResponses;
 
-    public function store(CreateCustomerRequest $request, CreateCustomerHandler $handler): Response
+    public function store(MutateCustomerRequest $request, CreateCustomerHandler $handler): Response
     {
         $result = $handler->handle($request->validated());
 

@@ -49,6 +49,28 @@ class NameCombinedWithDateOfBirthIsUnique implements ValidationRule
                 request()->input('first_name'),
                 request()->input('last_name'),
                 request()->input('date_of_birth')
-            );
+            ) &&
+            $this->isNotUpdatingTheSameCustomer();
+    }
+
+    private function isNotUpdatingTheSameCustomer(): bool
+    {
+        if (!request()->routeIs('commands.customers.update')) {
+            return true;
+        }
+
+        $currentCustomer = $this->repository->find(request()->route('customer'));
+        $customerWithSameNameAndBirth = $this->repository->findCustomerWithNameAndBirth(request()->input('first_name'),
+                request()->input('last_name'),
+                request()->input('date_of_birth'));
+
+        if (!$currentCustomer ||
+            !$customerWithSameNameAndBirth ||
+            $currentCustomer->id != $customerWithSameNameAndBirth->id
+            ) {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Validation\Rule;
 use Intervention\Validation\Rules\Iban;
 use Propaganistas\LaravelPhone\Rules\Phone;
 
-class CreateCustomerRequest extends FormRequest
+class MutateCustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
