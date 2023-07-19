@@ -74,4 +74,15 @@ class CustomerRepository implements CustomerRepositoryInterface
             ->where('date_of_birth', $dateOfBirth)
             ->exists();
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function findCustomerWithNameAndBirth(string $firstName, string $lastName, string $dateOfBirth): mixed
+    {
+        return Customer::where('first_name', $firstName)
+            ->where('last_name', $lastName)
+            ->where('date_of_birth', $dateOfBirth)
+            ->first();
+    }
 }

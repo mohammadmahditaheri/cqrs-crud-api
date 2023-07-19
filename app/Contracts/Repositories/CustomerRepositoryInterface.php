@@ -48,4 +48,16 @@ interface CustomerRepositoryInterface
         string $lastName,
         string $dateOfBirth
     ): bool;
+
+    /**
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $dateOfBirth
+     * @return mixed
+     */
+    public function findCustomerWithNameAndBirth(
+        string $firstName,
+        string $lastName,
+        string $dateOfBirth
+    ): mixed;
 }
