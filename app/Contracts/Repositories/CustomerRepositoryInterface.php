@@ -55,7 +55,7 @@ interface CustomerRepositoryInterface
      * @param string $dateOfBirth
      * @return mixed
      */
-    public function findCustomerWithNameAndBirth(
+    public function findCustomerByNameAndBirth(
         string $firstName,
         string $lastName,
         string $dateOfBirth

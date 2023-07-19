@@ -67,7 +67,7 @@ class CustomerRepository implements CustomerRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function customerWithNameAndBirthExists(string $firstName, string $lastName, string $dateOfBirth): bool
+    public function findCustomerByNameAndBirth(string $firstName, string $lastName, string $dateOfBirth): bool
     {
         return (bool) Customer::where('first_name', $firstName)
             ->where('last_name', $lastName)
