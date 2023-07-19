@@ -27,7 +27,12 @@ class MutateCustomerRequest extends FormRequest
      */
     public function rules(CustomerRepositoryInterface $repository): array
     {
-        return [
+        /**
+         * in case of update
+         */
+        $customer = $repository->find($this->route('customer'));
+
+        $rules = [
             'first_name' => [
                 'required',
                 'string',
@@ -58,7 +63,6 @@ class MutateCustomerRequest extends FormRequest
                 'string',
                 'max:65',
                 'email',
-                Rule::unique('customers', 'email')
             ],
             'bank_account_number' => [
                 'required',
@@ -66,5 +70,14 @@ class MutateCustomerRequest extends FormRequest
                 new Iban(),
             ]
         ];
+
+        // uniqueness of email
+        if ($customer) {
+            $rules['email'][] = Rule::unique('customers', 'email')->ignore($customer->id);
+        } else {
+            $rules['email'][] = Rule::unique('customers', 'email');
+        }
+
+        return $rules;
     }
 }
