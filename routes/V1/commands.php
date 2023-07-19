@@ -18,11 +18,13 @@ Route::name('commands.')->group(function () {
     // update customer
     Route::put('/customers/{customer}', [CustomerCommandsController::class, 'update'])
         ->whereNumber('customer')
-        ->name('customers.update');
+        ->name('customers.update')
+        ->middleware(['customer_exists']);
 
     // delete customer
     Route::delete('customers/{customer}', [CustomerCommandsController::class, 'destroy'])
         ->whereNumber('customer')
-        ->name('customers.delete');
+        ->name('customers.delete')
+        ->middleware(['customer_exists']);
 });
 
