@@ -67,7 +67,11 @@ class CustomerRepository implements CustomerRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function findCustomerByNameAndBirth(string $firstName, string $lastName, string $dateOfBirth): bool
+    public function customerWithNameAndBirthExists(
+        string $firstName,
+        string $lastName,
+        string $dateOfBirth
+    ): bool
     {
         return (bool) Customer::where('first_name', $firstName)
             ->where('last_name', $lastName)
@@ -78,7 +82,11 @@ class CustomerRepository implements CustomerRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function findCustomerWithNameAndBirth(string $firstName, string $lastName, string $dateOfBirth): mixed
+    public function findCustomerByNameAndBirth(
+        string $firstName,
+        string $lastName,
+        string $dateOfBirth
+    ): mixed
     {
         return Customer::where('first_name', $firstName)
             ->where('last_name', $lastName)
