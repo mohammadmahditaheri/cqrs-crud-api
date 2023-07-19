@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class NameCombinedWithDateOfBirthIsUnique implements ValidationRule
 {
+    const ERROR_MESSAGE = 'The date of birth combined with first name and last name has already been taken.';
+
     public function __construct(private CustomerRepositoryInterface $repository)
     {
     }
@@ -24,10 +26,11 @@ class NameCombinedWithDateOfBirthIsUnique implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if ($this->violatesTheRule()) {
-            throw new HttpResponseException(response([
-                    'message' => 'The date of birth combined with first name and last name has already been taken.',
+            throw new HttpResponseException(
+                response([
+                    'message' => self::ERROR_MESSAGE,
                     "errors" => [
-                        'date_of_birth' => ['The date of birth combined with first name and last name has already been taken.']
+                        'date_of_birth' => [self::ERROR_MESSAGE]
                     ]
                 ], Response::HTTP_UNPROCESSABLE_ENTITY)
             );
@@ -60,14 +63,17 @@ class NameCombinedWithDateOfBirthIsUnique implements ValidationRule
         }
 
         $currentCustomer = $this->repository->find(request()->route('customer'));
-        $customerWithSameNameAndBirth = $this->repository->findCustomerWithNameAndBirth(request()->input('first_name'),
-                request()->input('last_name'),
-                request()->input('date_of_birth'));
+        $customerWithSameNameAndBirth = $this->repository->findCustomerByNameAndBirth(
+            request()->input('first_name'),
+            request()->input('last_name'),
+            request()->input('date_of_birth')
+        );
 
-        if (!$currentCustomer ||
+        if (
+            !$currentCustomer ||
             !$customerWithSameNameAndBirth ||
             $currentCustomer->id != $customerWithSameNameAndBirth->id
-            ) {
+        ) {
             return true;
         }
 
