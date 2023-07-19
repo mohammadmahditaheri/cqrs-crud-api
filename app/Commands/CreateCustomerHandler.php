@@ -13,19 +13,12 @@ class CreateCustomerHandler
     /**
      * handle command
      *
-     * @param array $params
+     * @param array $data
      * @return bool
      */
-    public function handle(array $params): bool
+    public function handle(array $data): bool
     {
-        $command = new CreateCustomerCommand(
-            firstName: $params['first_name'],
-            lastName: $params['last_name'],
-            dateOfBirth: $params['date_of_birth'],
-            phoneNumber: $params['phone_number'],
-            email: $params['email'],
-            bankAccountNumber: $params['bank_account_number']
-        );
+        $command = new CreateCustomerCommand($data);
 
         return $command->create($this->repository);
     }
