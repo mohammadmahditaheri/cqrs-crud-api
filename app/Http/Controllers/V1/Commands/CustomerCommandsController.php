@@ -8,13 +8,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MutateCustomerRequest;
 use App\Traits\Controllers\FormatsCustomerCommandResponses;
 use App\Traits\Controllers\FormatsErrorResponses;
+use App\Traits\Controllers\ThrowsServerError;
 use Illuminate\Http\Response;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class CustomerCommandsController extends Controller
 {
     use FormatsErrorResponses,
-        FormatsCustomerCommandResponses;
+        FormatsCustomerCommandResponses,
+        ThrowsServerError;
 
     /**
      * store a new customer in repository
@@ -24,10 +26,7 @@ class CustomerCommandsController extends Controller
         $result = $handler->handle($request->validated());
 
         if (!$result) {
-            throw $this->errorResponse(
-                message: 'The requested operation failed',
-                code: SymfonyResponse::HTTP_INTERNAL_SERVER_ERROR
-            );
+            throw $this->serverError();
         }
 
         return $this->createdSuccessfully();
@@ -41,10 +40,7 @@ class CustomerCommandsController extends Controller
         $result = $handler->handle($customerId, $request->validated());
 
         if (!$result) {
-            throw $this->errorResponse(
-                message: 'The requested operation failed',
-                code: SymfonyResponse::HTTP_INTERNAL_SERVER_ERROR
-            );
+            throw $this->serverError();
         }
 
         return $this->updatedSuccessfully();
