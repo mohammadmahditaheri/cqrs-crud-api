@@ -13,7 +13,7 @@ class CustomerRepository implements CustomerRepositoryInterface
      */
     public function get(int $perPage = 9): mixed
     {
-        return Customer::latest()->paginate($perPage)->get();
+        return Customer::latest()->paginate($perPage);
     }
 
     /**
