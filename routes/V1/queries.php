@@ -13,5 +13,6 @@ Route::name('queries.')->group(function () {
     // get customer by id
     Route::get('/customers/{customer}', ShowCustomerController::class)
         ->whereNumber('customer')
+        ->middleware('customer_exists')
         ->name('customers.show');
 });
