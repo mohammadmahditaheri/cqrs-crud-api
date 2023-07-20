@@ -27,6 +27,14 @@ class CustomerRepository implements CustomerRepositoryInterface
     /**
      * @inheritDoc
      */
+    public function findByEmail(string $email): mixed
+    {
+        return Customer::where('email', $email)->first();
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function create(array $data): bool
     {
         return (bool) Customer::create($data);

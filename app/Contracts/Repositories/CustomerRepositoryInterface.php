@@ -60,4 +60,10 @@ interface CustomerRepositoryInterface
         string $lastName,
         string $dateOfBirth
     ): mixed;
+
+    /**
+     * @param string $email
+     * @return mixed
+     */
+    public function findByEmail(string $email): mixed;
 }
