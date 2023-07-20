@@ -11,6 +11,7 @@ use function route;
 class CreateCustomerCommandTest extends TestCase
 {
     protected array $data = [];
+    const CREATE_ROUTE = 'commands.customers.create';
 
     public function setUp(): void
     {
@@ -32,9 +33,9 @@ class CreateCustomerCommandTest extends TestCase
      * @param $data
      * @return TestResponse
      */
-    private function sendPostJson($data): TestResponse
+    private function sendCreateRequest($data): TestResponse
     {
-        return $this->postJson(route('commands.customers.create'), $data);
+        return $this->postJson(route(self::CREATE_ROUTE), $data);
     }
 
     /**
@@ -42,7 +43,7 @@ class CreateCustomerCommandTest extends TestCase
      */
     public function it_can_create_customer_through_store_api_command(): void
     {
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_CREATED)
             ->assertJson([
@@ -60,7 +61,7 @@ class CreateCustomerCommandTest extends TestCase
     {
         $this->data['first_name'] = null;
 
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -78,7 +79,7 @@ class CreateCustomerCommandTest extends TestCase
     {
         $this->data['last_name'] = null;
 
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -96,7 +97,7 @@ class CreateCustomerCommandTest extends TestCase
     {
         $this->data['date_of_birth'] = null;
 
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -114,7 +115,7 @@ class CreateCustomerCommandTest extends TestCase
     {
         $this->data['phone_number'] = null;
 
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -132,7 +133,7 @@ class CreateCustomerCommandTest extends TestCase
     {
         $this->data['email'] = null;
 
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -150,7 +151,7 @@ class CreateCustomerCommandTest extends TestCase
     {
         $this->data['bank_account_number'] = null;
 
-        $response = $this->sendPostJson($this->data);
+        $response = $this->sendCreateRequest($this->data);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -176,10 +177,10 @@ class CreateCustomerCommandTest extends TestCase
         ];
 
         // first customer with the email
-        $this->sendPostJson($this->data);
+        $this->sendCreateRequest($this->data);
 
         // try for another customer with the same email
-        $response = $this->sendPostJson($secondData);
+        $response = $this->sendCreateRequest($secondData);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
@@ -206,10 +207,10 @@ class CreateCustomerCommandTest extends TestCase
         ];
 
         // first customer
-        $this->sendPostJson($this->data);
+        $this->sendCreateRequest($this->data);
 
         // try for another customer with the same name and birth date
-        $response = $this->sendPostJson($secondData);
+        $response = $this->sendCreateRequest($secondData);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
             ->assertJson([
