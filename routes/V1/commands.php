@@ -15,16 +15,17 @@ Route::name('commands.')->group(function () {
     Route::post('/customers', [CustomerCommandsController::class, 'store'])
         ->name('customers.create');
 
-    // update customer
-    Route::put('/customers/{customer}', [CustomerCommandsController::class, 'update'])
-        ->whereNumber('customer')
-        ->name('customers.update')
-        ->middleware(['customer_exists']);
+    Route::middleware(['customer_exists'])->group(function () {
+        // update customer
+        Route::put('/customers/{customer}', [CustomerCommandsController::class, 'update'])
+            ->whereNumber('customer')
+            ->name('customers.update');
 
-    // delete customer
-    Route::delete('customers/{customer}', [CustomerCommandsController::class, 'destroy'])
-        ->whereNumber('customer')
-        ->name('customers.delete')
-        ->middleware(['customer_exists']);
+        // delete customer
+        Route::delete('customers/{customer}', [CustomerCommandsController::class, 'destroy'])
+            ->whereNumber('customer')
+            ->name('customers.delete');
+    });
+
 });
 
