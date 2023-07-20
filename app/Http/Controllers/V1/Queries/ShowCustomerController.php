@@ -8,6 +8,10 @@ use App\Http\Resources\CustomerResource;
 use App\Traits\Controllers\FormatsQueryResponses;
 use Illuminate\Http\Response;
 
+
+/**
+ * @group Queries
+ */
 class ShowCustomerController extends Controller
 {
     use FormatsQueryResponses;
@@ -17,7 +21,11 @@ class ShowCustomerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get customer
+     *
+     * Display the specified customer by id.
+     *
+     * @header Accept application/json
      */
     public function __invoke(string $id): Response
     {

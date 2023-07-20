@@ -9,6 +9,10 @@ use App\Http\Resources\CustomerResource;
 use App\Traits\Controllers\FormatsQueryResponses;
 use Illuminate\Http\Response;
 
+
+/**
+ * @group Queries
+ */
 class GetCustomerListController extends Controller
 {
     use FormatsQueryResponses;
@@ -17,7 +21,11 @@ class GetCustomerListController extends Controller
     {}
 
     /**
-     * Display a listing of the resource.
+     * Get customers
+     *
+     * Display a paginated listing of the customers.
+     *
+     * @header Accept application/json
      */
     public function __invoke(FetchCustomersRequest $request): Response
     {

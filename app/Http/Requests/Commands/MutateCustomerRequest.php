@@ -22,18 +22,21 @@ class MutateCustomerRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @param CustomerRepositoryInterface $repository
      * @return array
      */
-    public function rules(CustomerRepositoryInterface $repository): array
+    public function rules(): array
     {
         /**
          * in case of update
          */
         $customer = null;
-        if ($this->routeIs('commands.customers.update')) {
+        $repository = resolve(CustomerRepositoryInterface::class);
+        if ($this->routeIs('commands.customers.update') &&
+            $this->route('customer') !== null
+        ) {
             $customer = $repository->find($this->route('customer'));
         }
+
 
         $rules = [
             'first_name' => [
