@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
+use App\Traits\Controllers\FormatsCustomerCommandResponses;
 use Illuminate\Testing\TestResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
@@ -10,6 +11,8 @@ use function route;
 
 class CreateCustomerCommandTest extends TestCase
 {
+    use FormatsCustomerCommandResponses;
+
     protected array $data = [];
     const CREATE_ROUTE = 'commands.customers.create';
 
@@ -47,7 +50,7 @@ class CreateCustomerCommandTest extends TestCase
 
         $response->assertStatus(Response::HTTP_CREATED)
             ->assertJson([
-                'message' => 'Customer created successfully.'
+                'message' => self::$createdMessage
             ]);
 
         $this->assertDatabaseHas('customers', $this->data);

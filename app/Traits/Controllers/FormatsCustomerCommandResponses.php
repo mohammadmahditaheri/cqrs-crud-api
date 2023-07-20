@@ -9,9 +9,9 @@ trait FormatsCustomerCommandResponses
 {
     use FormatsCommandResponse;
 
-    private string $createdMessage = 'Customer created successfully.';
-    private string $updatedMessage = 'Customer updated successfully.';
-    private string $deletedMessage = 'Customer deleted successfully.';
+    public static string $createdMessage = 'Customer created successfully.';
+    public static string $updatedMessage = 'Customer updated successfully.';
+    public static string $deletedMessage = 'Customer deleted successfully.';
 
     /**
      * Formats successful create response
@@ -19,7 +19,7 @@ trait FormatsCustomerCommandResponses
     protected function createdSuccessfully(): Response
     {
         return $this->successfulCommandResponse(
-            message: $this->createdMessage,
+            message: self::$createdMessage,
             code: SymfonyResponse::HTTP_CREATED
         );
     }
@@ -30,7 +30,7 @@ trait FormatsCustomerCommandResponses
     protected function updatedSuccessfully(): Response
     {
         return $this->successfulCommandResponse(
-            message: $this->updatedMessage
+            message: self::$updatedMessage
         );
     }
 
@@ -40,7 +40,7 @@ trait FormatsCustomerCommandResponses
     protected function deletedSuccessfully(): Response
     {
         return $this->successfulCommandResponse(
-            message: $this->deletedMessage,
+            message: self::$deletedMessage,
             code: SymfonyResponse::HTTP_NO_CONTENT
         );
     }
