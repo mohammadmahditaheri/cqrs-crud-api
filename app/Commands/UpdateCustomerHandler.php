@@ -2,20 +2,17 @@
 
 namespace App\Commands;
 
+use App\Contracts\Commands\UpdateCustomerHandlerInterface;
 use App\Contracts\Repositories\CustomerRepositoryInterface;
 
-class UpdateCustomerHandler
+class UpdateCustomerHandler implements UpdateCustomerHandlerInterface
 {
     public function __construct(private CustomerRepositoryInterface $repository)
     {
     }
 
     /**
-     * handle command
-     *
-     * @param int $customerId
-     * @param array $newData
-     * @return bool
+     * @inheritDoc
      */
     public function handle(int $customerId, array $newData): bool
     {

@@ -2,19 +2,17 @@
 
 namespace App\Commands;
 
+use App\Contracts\Commands\DeleteCustomerHandlerInterface;
 use App\Contracts\Repositories\CustomerRepositoryInterface;
 
-class DeleteCustomerHandler
+class DeleteCustomerHandler implements DeleteCustomerHandlerInterface
 {
     public function __construct(private CustomerRepositoryInterface $repository)
     {
     }
 
     /**
-     * handle command
-     *
-     * @param int $customerId
-     * @return bool
+     * @inheritDoc
      */
     public function handle(int $customerId): bool
     {
