@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\V1\Commands;
 
 use App\Commands\CreateCustomerHandler;
+use App\Commands\DeleteCustomerHandler;
 use App\Commands\UpdateCustomerHandler;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MutateCustomerRequest;
@@ -46,9 +47,22 @@ class CustomerCommandsController extends Controller
         return $this->updatedSuccessfully();
     }
 
-    public function delete(): Response
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(
+        string                $customerId,
+        DeleteCustomerHandler $handler
+    ): Response
     {
-        // TODOs
-        return response(['data' => 'delete test']);
+        $result = $handler->handle(
+            customerId: $customerId
+        );
+
+        if (!$result) {
+            throw $this->serverError();
+        }
+
+        return $this->deletedSuccessfully();
     }
 }
