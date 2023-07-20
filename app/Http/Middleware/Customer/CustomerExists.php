@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Customer;
 
 use App\Contracts\Repositories\CustomerRepositoryInterface;
 use App\Traits\Controllers\FormatsErrorResponses;

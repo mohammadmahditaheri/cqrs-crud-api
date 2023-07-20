@@ -68,6 +68,6 @@ class Kernel extends HttpKernel
         /**
          * Custom middlewares
          */
-        'customer_exists' => \App\Http\Middleware\CustomerExists::class
+        'customer_exists' => Middleware\Customer\CustomerExists::class
     ];
 }
