@@ -43,6 +43,39 @@ class CreateCustomerCommandTest extends TestCase
     }
 
     /**
+     * handle testing create with missing data
+     */
+    protected function cantCreateWithoutMissing(string $missing)
+    {
+        // missing
+        $response = $this->createWithMissing($missing);
+
+        $errorMessage = 'The ' . Str::replace('_', ' ', $missing) . ' field is required.';
+
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
+            ->assertJson([
+                'message' => $errorMessage,
+                'errors' => [
+                    $missing => [$errorMessage]
+                ]
+            ]);
+
+        // assert that the database isn't changed
+        $this->assertDatabaseEmpty('customers');
+    }
+
+    /**
+     * Send create request with incomplete data
+     */
+    private function createWithMissing(string $missing): TestResponse
+    {
+        $incompleteData = $this->data;
+        unset($incompleteData[$missing]);
+
+        return $this->sendCreateRequest($incompleteData);
+    }
+
+    /**
      * @test
      */
     public function it_can_create_customer_through_store_api_command(): void
@@ -142,36 +175,5 @@ class CreateCustomerCommandTest extends TestCase
         $this->cantCreateWithoutMissing('bank_account_number');
     }
 
-    /**
-     * handle testing create with missing data
-     */
-    protected function cantCreateWithoutMissing(string $missing)
-    {
-        // missing
-        $response = $this->createWithMissing($missing);
 
-        $errorMessage = 'The ' . Str::replace('_', ' ', $missing) . ' field is required.';
-
-        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
-            ->assertJson([
-                'message' => $errorMessage,
-                'errors' => [
-                    $missing => [$errorMessage]
-                ]
-            ]);
-
-        // assert that the database isn't changed
-        $this->assertDatabaseEmpty('customers');
-    }
-
-    /**
-     * Send create request with incomplete data
-     */
-    private function createWithMissing(string $missing): TestResponse
-    {
-        $incompleteData = $this->data;
-        unset($incompleteData[$missing]);
-
-        return $this->sendCreateRequest($incompleteData);
-    }
 }
