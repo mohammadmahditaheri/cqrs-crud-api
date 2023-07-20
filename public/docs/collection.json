@@ -1,0 +1,284 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "nikoushamin_api",
+        "_postman_id": "22bebe82-93fa-4d1c-bc09-2f0fdd2dabf3",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Commands",
+            "description": "\nCreate, Update and Delete customers",
+            "item": [
+                {
+                    "name": "Create customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/commands\/customers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/commands\/customers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"porxoezobljikctalcr\",\"last_name\":\"uzckimpwxzienavbkdggdihu\",\"date_of_birth\":\"2007-03-26\",\"phone_number\":\"eveniet\",\"email\":\"aditya71@example.com\",\"bank_account_number\":\"impedit\"}"
+                        },
+                        "description": "Store a newly created resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"message\": \"Customer created successfully.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/commands\/customers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/commands\/customers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "soluta",
+                                    "description": "The ID of the customer."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"ajrhgs\",\"last_name\":\"fhamivbkmbbihpnqxlzoonao\",\"date_of_birth\":\"2014-01-17\",\"phone_number\":\"occaecati\",\"email\":\"phyatt@example.com\",\"bank_account_number\":\"rerum\"}"
+                        },
+                        "description": "Update the specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"Customer updated successfully.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/commands\/customers\/:customer",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/commands\/customers\/:customer",
+                            "variable": [
+                                {
+                                    "id": "customer",
+                                    "key": "customer",
+                                    "value": "316",
+                                    "description": "The customer."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Remove the specified resource from storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"Customer deleted successfully.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Queries",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get customers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/queries\/customers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/queries\/customers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"perPage\":21}"
+                        },
+                        "description": "Display a paginated listing of the customers.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":93,\"first_name\":\"Leon\",\"last_name\":\"Wiegand\",\"date_of_birth\":\"1977-05-20\",\"phone_number\":\"+17436817836\",\"email\":\"adrain.stiedemann@stehr.com\",\"bank_account_number\":\"US61440488650535467310615153\"},{\"id\":94,\"first_name\":\"Aisha\",\"last_name\":\"Tromp\",\"date_of_birth\":\"1984-03-14\",\"phone_number\":\"+15808330125\",\"email\":\"joanie85@gmail.com\",\"bank_account_number\":\"US16970436639450108691658522\"},{\"id\":95,\"first_name\":\"Stone\",\"last_name\":\"Halvorson\",\"date_of_birth\":\"2013-08-07\",\"phone_number\":\"+15204481519\",\"email\":\"mbernier@kihn.com\",\"bank_account_number\":\"US72832003385773443606736222\"},{\"id\":96,\"first_name\":\"Oran\",\"last_name\":\"Okuneva\",\"date_of_birth\":\"2015-02-21\",\"phone_number\":\"+18282824225\",\"email\":\"reinger.julie@hotmail.com\",\"bank_account_number\":\"US78222696314968164832145499\"},{\"id\":97,\"first_name\":\"Major\",\"last_name\":\"Dicki\",\"date_of_birth\":\"1997-03-31\",\"phone_number\":\"+15406664609\",\"email\":\"kwiegand@ankunding.com\",\"bank_account_number\":\"US55384821421041741917871223\"},{\"id\":98,\"first_name\":\"Cortez\",\"last_name\":\"Nader\",\"date_of_birth\":\"2000-09-03\",\"phone_number\":\"+15317064981\",\"email\":\"clinton66@keebler.com\",\"bank_account_number\":\"US67245153060175267945837711\"},{\"id\":99,\"first_name\":\"Laurianne\",\"last_name\":\"Hansen\",\"date_of_birth\":\"1977-09-19\",\"phone_number\":\"+12519733685\",\"email\":\"beryl71@mann.org\",\"bank_account_number\":\"US52045839547220500580377671\"},{\"id\":100,\"first_name\":\"Millie\",\"last_name\":\"Lakin\",\"date_of_birth\":\"2007-03-08\",\"phone_number\":\"+13514884997\",\"email\":\"johnston.alaina@yahoo.com\",\"bank_account_number\":\"US93553831692066812146687799\"},{\"id\":1,\"first_name\":\"Boris\",\"last_name\":\"Abshire\",\"date_of_birth\":\"2001-02-09\",\"phone_number\":\"+16813322494\",\"email\":\"xzavier53@fisher.com\",\"bank_account_number\":\"US29012089723598717653771189\"},{\"id\":2,\"first_name\":\"Sasha\",\"last_name\":\"Koelpin\",\"date_of_birth\":\"2008-05-06\",\"phone_number\":\"+19374848094\",\"email\":\"prince66@mante.info\",\"bank_account_number\":\"US48588573240219321071448837\"},{\"id\":3,\"first_name\":\"Tremayne\",\"last_name\":\"Howe\",\"date_of_birth\":\"2021-12-19\",\"phone_number\":\"+13616870739\",\"email\":\"jast.henri@yahoo.com\",\"bank_account_number\":\"US64308188088037318207969729\"},{\"id\":4,\"first_name\":\"Haven\",\"last_name\":\"Kovacek\",\"date_of_birth\":\"2011-09-29\",\"phone_number\":\"+19527318810\",\"email\":\"shintz@yahoo.com\",\"bank_account_number\":\"US88307848252775179324958202\"},{\"id\":5,\"first_name\":\"Valerie\",\"last_name\":\"Wehner\",\"date_of_birth\":\"1999-04-15\",\"phone_number\":\"+16789670634\",\"email\":\"anika.predovic@yahoo.com\",\"bank_account_number\":\"US59777697960978501985534590\"},{\"id\":6,\"first_name\":\"Coralie\",\"last_name\":\"Rutherford\",\"date_of_birth\":\"2012-04-21\",\"phone_number\":\"+19802432022\",\"email\":\"sidney97@gmail.com\",\"bank_account_number\":\"US09820198591056641547372872\"},{\"id\":7,\"first_name\":\"Mac\",\"last_name\":\"Farrell\",\"date_of_birth\":\"2019-03-05\",\"phone_number\":\"+17405788171\",\"email\":\"christa.conn@nikolaus.com\",\"bank_account_number\":\"US84195186285083176142371753\"},{\"id\":8,\"first_name\":\"Keyshawn\",\"last_name\":\"Wyman\",\"date_of_birth\":\"1980-09-02\",\"phone_number\":\"+16783968184\",\"email\":\"armando.romaguera@larson.com\",\"bank_account_number\":\"US08188756723277517415929899\"},{\"id\":9,\"first_name\":\"Ian\",\"last_name\":\"Stark\",\"date_of_birth\":\"2012-06-28\",\"phone_number\":\"+13392030628\",\"email\":\"xklocko@yahoo.com\",\"bank_account_number\":\"US64767895273909420770436540\"},{\"id\":10,\"first_name\":\"Edgar\",\"last_name\":\"Watsica\",\"date_of_birth\":\"1974-06-04\",\"phone_number\":\"+19152232497\",\"email\":\"etha10@homenick.com\",\"bank_account_number\":\"US53955245102228134210395904\"},{\"id\":11,\"first_name\":\"Lance\",\"last_name\":\"Bartell\",\"date_of_birth\":\"1982-09-05\",\"phone_number\":\"+18082763005\",\"email\":\"aliza.buckridge@yahoo.com\",\"bank_account_number\":\"US22658480127631491892932992\"},{\"id\":12,\"first_name\":\"Terrence\",\"last_name\":\"Gulgowski\",\"date_of_birth\":\"2008-02-25\",\"phone_number\":\"+18387835410\",\"email\":\"kayden31@hotmail.com\",\"bank_account_number\":\"US84762417936696593979628784\"},{\"id\":13,\"first_name\":\"Laurine\",\"last_name\":\"Braun\",\"date_of_birth\":\"2002-03-01\",\"phone_number\":\"+17086480722\",\"email\":\"vbauch@yahoo.com\",\"bank_account_number\":\"US65820901077551758606584667\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=5\",\"prev\":null,\"next\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=2\"},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":5,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=1\",\"label\":\"1\",\"active\":true},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=2\",\"label\":\"2\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=3\",\"label\":\"3\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=4\",\"label\":\"4\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=5\",\"label\":\"5\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers?page=2\",\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/queries\\\/customers\",\"per_page\":21,\"to\":21,\"total\":100}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get customer",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/queries\/customers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/queries\/customers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the customer."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Display the specified customer by id.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"first_name\":\"Boris\",\"last_name\":\"Abshire\",\"date_of_birth\":\"2001-02-09\",\"phone_number\":\"+16813322494\",\"email\":\"xzavier53@fisher.com\",\"bank_account_number\":\"US29012089723598717653771189\"}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

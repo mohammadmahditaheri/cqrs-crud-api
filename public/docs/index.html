@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>nikoushamin_api Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var tryItOutBaseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.22.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.22.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-commands" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="commands">
+                    <a href="#commands">Commands</a>
+                </li>
+                                    <ul id="tocify-subheader-commands" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="commands-POSTapi-v1-commands-customers">
+                                <a href="#commands-POSTapi-v1-commands-customers">Create customer</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="commands-PUTapi-v1-commands-customers--id-">
+                                <a href="#commands-PUTapi-v1-commands-customers--id-">Update customer</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="commands-DELETEapi-v1-commands-customers--customer-">
+                                <a href="#commands-DELETEapi-v1-commands-customers--customer-">Delete customer</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-queries" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="queries">
+                    <a href="#queries">Queries</a>
+                </li>
+                                    <ul id="tocify-subheader-queries" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="queries-GETapi-v1-queries-customers">
+                                <a href="#queries-GETapi-v1-queries-customers">Get customers</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="queries-GETapi-v1-queries-customers--id-">
+                                <a href="#queries-GETapi-v1-queries-customers--id-">Get customer</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: July 20, 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<aside>
+    <strong>Base URL</strong>: <code>http://localhost</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="commands">Commands</h1>
+
+    <p>Create, Update and Delete customers</p>
+
+                                <h2 id="commands-POSTapi-v1-commands-customers">Create customer</h2>
+
+<p>
+</p>
+
+<p>Store a newly created resource in storage.</p>
+
+<span id="example-requests-POSTapi-v1-commands-customers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/commands/customers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"first_name\": \"porxoezobljikctalcr\",
+    \"last_name\": \"uzckimpwxzienavbkdggdihu\",
+    \"date_of_birth\": \"2007-03-26\",
+    \"phone_number\": \"eveniet\",
+    \"email\": \"aditya71@example.com\",
+    \"bank_account_number\": \"impedit\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/commands/customers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "first_name": "porxoezobljikctalcr",
+    "last_name": "uzckimpwxzienavbkdggdihu",
+    "date_of_birth": "2007-03-26",
+    "phone_number": "eveniet",
+    "email": "aditya71@example.com",
+    "bank_account_number": "impedit"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-commands-customers">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Customer created successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-commands-customers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-commands-customers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-commands-customers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-commands-customers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-commands-customers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-commands-customers" data-method="POST"
+      data-path="api/v1/commands/customers"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-commands-customers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-commands-customers"
+                    onclick="tryItOut('POSTapi-v1-commands-customers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-commands-customers"
+                    onclick="cancelTryOut('POSTapi-v1-commands-customers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-commands-customers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/commands/customers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-commands-customers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-commands-customers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="first_name"                data-endpoint="POSTapi-v1-commands-customers"
+               value="porxoezobljikctalcr"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>porxoezobljikctalcr</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_name"                data-endpoint="POSTapi-v1-commands-customers"
+               value="uzckimpwxzienavbkdggdihu"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>uzckimpwxzienavbkdggdihu</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_of_birth</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_of_birth"                data-endpoint="POSTapi-v1-commands-customers"
+               value="2007-03-26"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Must be a date before <code>now</code>. Example: <code>2007-03-26</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="phone_number"                data-endpoint="POSTapi-v1-commands-customers"
+               value="eveniet"
+               data-component="body">
+    <br>
+<p>Example: <code>eveniet</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v1-commands-customers"
+               value="aditya71@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Must not be greater than 65 characters. Example: <code>aditya71@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bank_account_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="bank_account_number"                data-endpoint="POSTapi-v1-commands-customers"
+               value="impedit"
+               data-component="body">
+    <br>
+<p>Example: <code>impedit</code></p>
+        </div>
+        </form>
+
+                    <h2 id="commands-PUTapi-v1-commands-customers--id-">Update customer</h2>
+
+<p>
+</p>
+
+<p>Update the specified resource in storage.</p>
+
+<span id="example-requests-PUTapi-v1-commands-customers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/v1/commands/customers/soluta" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"first_name\": \"ajrhgs\",
+    \"last_name\": \"fhamivbkmbbihpnqxlzoonao\",
+    \"date_of_birth\": \"2014-01-17\",
+    \"phone_number\": \"occaecati\",
+    \"email\": \"phyatt@example.com\",
+    \"bank_account_number\": \"rerum\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/commands/customers/soluta"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "first_name": "ajrhgs",
+    "last_name": "fhamivbkmbbihpnqxlzoonao",
+    "date_of_birth": "2014-01-17",
+    "phone_number": "occaecati",
+    "email": "phyatt@example.com",
+    "bank_account_number": "rerum"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-commands-customers--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Customer updated successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-commands-customers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-commands-customers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-commands-customers--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-commands-customers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-commands-customers--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-commands-customers--id-" data-method="PUT"
+      data-path="api/v1/commands/customers/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-commands-customers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-commands-customers--id-"
+                    onclick="tryItOut('PUTapi-v1-commands-customers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-commands-customers--id-"
+                    onclick="cancelTryOut('PUTapi-v1-commands-customers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-commands-customers--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/commands/customers/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="soluta"
+               data-component="url">
+    <br>
+<p>The ID of the customer. Example: <code>soluta</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="first_name"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="ajrhgs"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>ajrhgs</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_name"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="fhamivbkmbbihpnqxlzoonao"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>fhamivbkmbbihpnqxlzoonao</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_of_birth</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_of_birth"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="2014-01-17"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Must be a date before <code>now</code>. Example: <code>2014-01-17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="phone_number"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="occaecati"
+               data-component="body">
+    <br>
+<p>Example: <code>occaecati</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="phyatt@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Must not be greater than 65 characters. Example: <code>phyatt@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bank_account_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="bank_account_number"                data-endpoint="PUTapi-v1-commands-customers--id-"
+               value="rerum"
+               data-component="body">
+    <br>
+<p>Example: <code>rerum</code></p>
+        </div>
+        </form>
+
+                    <h2 id="commands-DELETEapi-v1-commands-customers--customer-">Delete customer</h2>
+
+<p>
+</p>
+
+<p>Remove the specified resource from storage.</p>
+
+<span id="example-requests-DELETEapi-v1-commands-customers--customer-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/v1/commands/customers/316" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/commands/customers/316"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-commands-customers--customer-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Customer deleted successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-commands-customers--customer-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-commands-customers--customer-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-commands-customers--customer-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-commands-customers--customer-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-commands-customers--customer-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-commands-customers--customer-" data-method="DELETE"
+      data-path="api/v1/commands/customers/{customer}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-commands-customers--customer-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-commands-customers--customer-"
+                    onclick="tryItOut('DELETEapi-v1-commands-customers--customer-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-commands-customers--customer-"
+                    onclick="cancelTryOut('DELETEapi-v1-commands-customers--customer-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-commands-customers--customer-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/commands/customers/{customer}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-commands-customers--customer-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-commands-customers--customer-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>customer</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="customer"                data-endpoint="DELETEapi-v1-commands-customers--customer-"
+               value="316"
+               data-component="url">
+    <br>
+<p>The customer. Example: <code>316</code></p>
+            </div>
+                    </form>
+
+                <h1 id="queries">Queries</h1>
+
+    
+
+                                <h2 id="queries-GETapi-v1-queries-customers">Get customers</h2>
+
+<p>
+</p>
+
+<p>Display a paginated listing of the customers.</p>
+
+<span id="example-requests-GETapi-v1-queries-customers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/queries/customers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"perPage\": 21
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/queries/customers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "perPage": 21
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-queries-customers">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 93,
+            &quot;first_name&quot;: &quot;Leon&quot;,
+            &quot;last_name&quot;: &quot;Wiegand&quot;,
+            &quot;date_of_birth&quot;: &quot;1977-05-20&quot;,
+            &quot;phone_number&quot;: &quot;+17436817836&quot;,
+            &quot;email&quot;: &quot;adrain.stiedemann@stehr.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US61440488650535467310615153&quot;
+        },
+        {
+            &quot;id&quot;: 94,
+            &quot;first_name&quot;: &quot;Aisha&quot;,
+            &quot;last_name&quot;: &quot;Tromp&quot;,
+            &quot;date_of_birth&quot;: &quot;1984-03-14&quot;,
+            &quot;phone_number&quot;: &quot;+15808330125&quot;,
+            &quot;email&quot;: &quot;joanie85@gmail.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US16970436639450108691658522&quot;
+        },
+        {
+            &quot;id&quot;: 95,
+            &quot;first_name&quot;: &quot;Stone&quot;,
+            &quot;last_name&quot;: &quot;Halvorson&quot;,
+            &quot;date_of_birth&quot;: &quot;2013-08-07&quot;,
+            &quot;phone_number&quot;: &quot;+15204481519&quot;,
+            &quot;email&quot;: &quot;mbernier@kihn.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US72832003385773443606736222&quot;
+        },
+        {
+            &quot;id&quot;: 96,
+            &quot;first_name&quot;: &quot;Oran&quot;,
+            &quot;last_name&quot;: &quot;Okuneva&quot;,
+            &quot;date_of_birth&quot;: &quot;2015-02-21&quot;,
+            &quot;phone_number&quot;: &quot;+18282824225&quot;,
+            &quot;email&quot;: &quot;reinger.julie@hotmail.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US78222696314968164832145499&quot;
+        },
+        {
+            &quot;id&quot;: 97,
+            &quot;first_name&quot;: &quot;Major&quot;,
+            &quot;last_name&quot;: &quot;Dicki&quot;,
+            &quot;date_of_birth&quot;: &quot;1997-03-31&quot;,
+            &quot;phone_number&quot;: &quot;+15406664609&quot;,
+            &quot;email&quot;: &quot;kwiegand@ankunding.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US55384821421041741917871223&quot;
+        },
+        {
+            &quot;id&quot;: 98,
+            &quot;first_name&quot;: &quot;Cortez&quot;,
+            &quot;last_name&quot;: &quot;Nader&quot;,
+            &quot;date_of_birth&quot;: &quot;2000-09-03&quot;,
+            &quot;phone_number&quot;: &quot;+15317064981&quot;,
+            &quot;email&quot;: &quot;clinton66@keebler.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US67245153060175267945837711&quot;
+        },
+        {
+            &quot;id&quot;: 99,
+            &quot;first_name&quot;: &quot;Laurianne&quot;,
+            &quot;last_name&quot;: &quot;Hansen&quot;,
+            &quot;date_of_birth&quot;: &quot;1977-09-19&quot;,
+            &quot;phone_number&quot;: &quot;+12519733685&quot;,
+            &quot;email&quot;: &quot;beryl71@mann.org&quot;,
+            &quot;bank_account_number&quot;: &quot;US52045839547220500580377671&quot;
+        },
+        {
+            &quot;id&quot;: 100,
+            &quot;first_name&quot;: &quot;Millie&quot;,
+            &quot;last_name&quot;: &quot;Lakin&quot;,
+            &quot;date_of_birth&quot;: &quot;2007-03-08&quot;,
+            &quot;phone_number&quot;: &quot;+13514884997&quot;,
+            &quot;email&quot;: &quot;johnston.alaina@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US93553831692066812146687799&quot;
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;first_name&quot;: &quot;Boris&quot;,
+            &quot;last_name&quot;: &quot;Abshire&quot;,
+            &quot;date_of_birth&quot;: &quot;2001-02-09&quot;,
+            &quot;phone_number&quot;: &quot;+16813322494&quot;,
+            &quot;email&quot;: &quot;xzavier53@fisher.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US29012089723598717653771189&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;first_name&quot;: &quot;Sasha&quot;,
+            &quot;last_name&quot;: &quot;Koelpin&quot;,
+            &quot;date_of_birth&quot;: &quot;2008-05-06&quot;,
+            &quot;phone_number&quot;: &quot;+19374848094&quot;,
+            &quot;email&quot;: &quot;prince66@mante.info&quot;,
+            &quot;bank_account_number&quot;: &quot;US48588573240219321071448837&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;first_name&quot;: &quot;Tremayne&quot;,
+            &quot;last_name&quot;: &quot;Howe&quot;,
+            &quot;date_of_birth&quot;: &quot;2021-12-19&quot;,
+            &quot;phone_number&quot;: &quot;+13616870739&quot;,
+            &quot;email&quot;: &quot;jast.henri@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US64308188088037318207969729&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;first_name&quot;: &quot;Haven&quot;,
+            &quot;last_name&quot;: &quot;Kovacek&quot;,
+            &quot;date_of_birth&quot;: &quot;2011-09-29&quot;,
+            &quot;phone_number&quot;: &quot;+19527318810&quot;,
+            &quot;email&quot;: &quot;shintz@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US88307848252775179324958202&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;first_name&quot;: &quot;Valerie&quot;,
+            &quot;last_name&quot;: &quot;Wehner&quot;,
+            &quot;date_of_birth&quot;: &quot;1999-04-15&quot;,
+            &quot;phone_number&quot;: &quot;+16789670634&quot;,
+            &quot;email&quot;: &quot;anika.predovic@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US59777697960978501985534590&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;first_name&quot;: &quot;Coralie&quot;,
+            &quot;last_name&quot;: &quot;Rutherford&quot;,
+            &quot;date_of_birth&quot;: &quot;2012-04-21&quot;,
+            &quot;phone_number&quot;: &quot;+19802432022&quot;,
+            &quot;email&quot;: &quot;sidney97@gmail.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US09820198591056641547372872&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;first_name&quot;: &quot;Mac&quot;,
+            &quot;last_name&quot;: &quot;Farrell&quot;,
+            &quot;date_of_birth&quot;: &quot;2019-03-05&quot;,
+            &quot;phone_number&quot;: &quot;+17405788171&quot;,
+            &quot;email&quot;: &quot;christa.conn@nikolaus.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US84195186285083176142371753&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;first_name&quot;: &quot;Keyshawn&quot;,
+            &quot;last_name&quot;: &quot;Wyman&quot;,
+            &quot;date_of_birth&quot;: &quot;1980-09-02&quot;,
+            &quot;phone_number&quot;: &quot;+16783968184&quot;,
+            &quot;email&quot;: &quot;armando.romaguera@larson.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US08188756723277517415929899&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;first_name&quot;: &quot;Ian&quot;,
+            &quot;last_name&quot;: &quot;Stark&quot;,
+            &quot;date_of_birth&quot;: &quot;2012-06-28&quot;,
+            &quot;phone_number&quot;: &quot;+13392030628&quot;,
+            &quot;email&quot;: &quot;xklocko@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US64767895273909420770436540&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;first_name&quot;: &quot;Edgar&quot;,
+            &quot;last_name&quot;: &quot;Watsica&quot;,
+            &quot;date_of_birth&quot;: &quot;1974-06-04&quot;,
+            &quot;phone_number&quot;: &quot;+19152232497&quot;,
+            &quot;email&quot;: &quot;etha10@homenick.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US53955245102228134210395904&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;first_name&quot;: &quot;Lance&quot;,
+            &quot;last_name&quot;: &quot;Bartell&quot;,
+            &quot;date_of_birth&quot;: &quot;1982-09-05&quot;,
+            &quot;phone_number&quot;: &quot;+18082763005&quot;,
+            &quot;email&quot;: &quot;aliza.buckridge@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US22658480127631491892932992&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;first_name&quot;: &quot;Terrence&quot;,
+            &quot;last_name&quot;: &quot;Gulgowski&quot;,
+            &quot;date_of_birth&quot;: &quot;2008-02-25&quot;,
+            &quot;phone_number&quot;: &quot;+18387835410&quot;,
+            &quot;email&quot;: &quot;kayden31@hotmail.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US84762417936696593979628784&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;first_name&quot;: &quot;Laurine&quot;,
+            &quot;last_name&quot;: &quot;Braun&quot;,
+            &quot;date_of_birth&quot;: &quot;2002-03-01&quot;,
+            &quot;phone_number&quot;: &quot;+17086480722&quot;,
+            &quot;email&quot;: &quot;vbauch@yahoo.com&quot;,
+            &quot;bank_account_number&quot;: &quot;US65820901077551758606584667&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/queries/customers?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/queries/customers?page=5&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: &quot;http://localhost/api/v1/queries/customers?page=2&quot;
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 5,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/queries/customers?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/queries/customers?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/queries/customers?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/queries/customers?page=4&quot;,
+                &quot;label&quot;: &quot;4&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/queries/customers?page=5&quot;,
+                &quot;label&quot;: &quot;5&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/queries/customers?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/queries/customers&quot;,
+        &quot;per_page&quot;: 21,
+        &quot;to&quot;: 21,
+        &quot;total&quot;: 100
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-queries-customers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-queries-customers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-queries-customers"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-queries-customers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-queries-customers">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-queries-customers" data-method="GET"
+      data-path="api/v1/queries/customers"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-queries-customers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-queries-customers"
+                    onclick="tryItOut('GETapi-v1-queries-customers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-queries-customers"
+                    onclick="cancelTryOut('GETapi-v1-queries-customers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-queries-customers"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/queries/customers</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-queries-customers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-queries-customers"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>perPage</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="perPage"                data-endpoint="GETapi-v1-queries-customers"
+               value="21"
+               data-component="body">
+    <br>
+<p>Must be at least 1. Example: <code>21</code></p>
+        </div>
+        </form>
+
+                    <h2 id="queries-GETapi-v1-queries-customers--id-">Get customer</h2>
+
+<p>
+</p>
+
+<p>Display the specified customer by id.</p>
+
+<span id="example-requests-GETapi-v1-queries-customers--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/queries/customers/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/queries/customers/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-queries-customers--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;Boris&quot;,
+        &quot;last_name&quot;: &quot;Abshire&quot;,
+        &quot;date_of_birth&quot;: &quot;2001-02-09&quot;,
+        &quot;phone_number&quot;: &quot;+16813322494&quot;,
+        &quot;email&quot;: &quot;xzavier53@fisher.com&quot;,
+        &quot;bank_account_number&quot;: &quot;US29012089723598717653771189&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-queries-customers--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-queries-customers--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-queries-customers--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-queries-customers--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-queries-customers--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-queries-customers--id-" data-method="GET"
+      data-path="api/v1/queries/customers/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-queries-customers--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-queries-customers--id-"
+                    onclick="tryItOut('GETapi-v1-queries-customers--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-queries-customers--id-"
+                    onclick="cancelTryOut('GETapi-v1-queries-customers--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-queries-customers--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/queries/customers/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-queries-customers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-queries-customers--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-queries-customers--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the customer. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
