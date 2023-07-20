@@ -6,12 +6,11 @@ use App\Commands\CreateCustomerHandler;
 use App\Commands\DeleteCustomerHandler;
 use App\Commands\UpdateCustomerHandler;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MutateCustomerRequest;
+use App\Http\Requests\Commands\MutateCustomerRequest;
 use App\Traits\Controllers\FormatsCustomerCommandResponses;
 use App\Traits\Controllers\FormatsErrorResponses;
 use App\Traits\Controllers\ThrowsServerError;
 use Illuminate\Http\Response;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class CustomerCommandsController extends Controller
 {
