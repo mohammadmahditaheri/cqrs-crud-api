@@ -54,6 +54,21 @@ class DeleteCustomerCommandTest extends TestCase
     }
 
     /**
+     * asserts that the database is not changed
+     */
+    protected function assertDatabaseIsNotChanged()
+    {
+        $this->assertDatabaseHas('customers', $this->data);
+        $this->assertDatabaseCount('customers', 1);
+    }
+
+    /**
+     * ----------------------
+     *   Test begin here
+     * ----------------------
+     */
+
+    /**
      * @test
      */
     public function it_can_delete_a_customer_from_database(): void
@@ -85,11 +100,58 @@ class DeleteCustomerCommandTest extends TestCase
     }
 
     /**
-     * asserts that the database is not changed
+     * @test
      */
-    protected function assertDatabaseIsNotChanged()
+    public function it_cannot_delete_a_customer_twice(): void
     {
-        $this->assertDatabaseHas('customers', $this->data);
-        $this->assertDatabaseCount('customers', 1);
+        $response = $this->sendDeleteRequest($this->customerId);
+        // again
+        $secondResponse = $this->sendDeleteRequest($this->customerId);
+
+        $secondResponse->assertStatus(Response::HTTP_NOT_FOUND)
+            ->assertJson([
+                'message' => self::$customerNotFound
+            ]);
+
+        // customer is being removed
+        $this->assertDatabaseEmpty('customers');
+    }
+
+    /**
+     * @test
+     */
+    public function it_cannot_delete_a_customer_with_wrong_method(): void
+    {
+        /**
+         * GET
+         */
+        $response = $this->getJson(route(self::DELETE_ROUTE, [
+            'customer' => $this->customerId
+        ]));
+        $this->assertDatabaseIsNotChanged();
+
+        /**
+         * POST
+         */
+        $response = $this->postJson(route(self::DELETE_ROUTE, [
+            'customer' => $this->customerId
+        ]));
+        $this->assertDatabaseIsNotChanged();
+
+        /**
+         * PUT
+         */
+        $response = $this->putJson(route(self::DELETE_ROUTE, [
+            'customer' => $this->customerId
+        ]));
+        $this->assertDatabaseIsNotChanged();
+
+        /**
+         * PATCH
+         */
+        $response = $this->patchJson(route(self::DELETE_ROUTE, [
+            'customer' => $this->customerId
+        ]));
+        $this->assertDatabaseIsNotChanged();
     }
 }
