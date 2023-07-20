@@ -1,0 +1,722 @@
+{
+	"info": {
+		"_postman_id": "34b7d09c-b13f-4f44-9d54-57bf7da045d2",
+		"name": "CQRS Crud api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17626753"
+	},
+	"item": [
+		{
+			"name": "Customer Commands",
+			"item": [
+				{
+					"name": "create customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Markus\",\n    \"last_name\": \"overmars\",\n    \"date_of_birth\": \"1970-02-15\",\n    \"phone_number\": \"+16813322412\",\n    \"email\": \"mark2@gmail.com\",\n    \"bank_account_number\": \"NL74RABO4952870715\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PATH}}/api/v1/commands/customers",
+							"host": [
+								"{{PATH}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"commands",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"mark\",\n    \"last_name\": \"overmars\",\n    \"date_of_birth\": \"1970-02-15\",\n    \"phone_number\": \"+16813322412\",\n    \"email\": \"mark2@gmail.com\",\n    \"bank_account_number\": \"NL74RABO4952870715\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PATH}}/api/v1/commands/customers",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"commands",
+										"customers"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jul 2023 23:12:50 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jul 2023 23:12:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Customer created successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"marka\",\n    \"last_name\": \"overmars\",\n    \"date_of_birth\": \"1970-02-15\",\n    \"phone_number\": \"+16813322412\",\n    \"email\": \"mark2@gmail.com\",\n    \"bank_account_number\": \"NL74RABO4952870715\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PATH}}/api/v1/commands/customers/101",
+							"host": [
+								"{{PATH}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"commands",
+								"customers",
+								"101"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update customer error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"markus\",\n    \"last_name\": \"overmars\",\n    \"date_of_birth\": \"1970-02-15\",\n    \"phone_number\": \"+16813322412\",\n    \"email\": \"mark2@gmail.com\",\n    \"bank_account_number\": \"NL74RABO4952870715\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PATH}}/api/v1/commands/customers/1001",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"commands",
+										"customers",
+										"1001"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jul 2023 23:46:30 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jul 2023 23:46:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The requested customer does not exist\"\n}"
+						},
+						{
+							"name": "update customer",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"marka\",\n    \"last_name\": \"overmars\",\n    \"date_of_birth\": \"1970-02-15\",\n    \"phone_number\": \"+16813322412\",\n    \"email\": \"mark2@gmail.com\",\n    \"bank_account_number\": \"NL74RABO4952870715\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{PATH}}/api/v1/commands/customers/101",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"commands",
+										"customers",
+										"101"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jul 2023 23:59:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Jul 2023 23:59:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Customer updated successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete customer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PATH}}/api/v1/commands/customers/101",
+							"host": [
+								"{{PATH}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"commands",
+								"customers",
+								"101"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete customer",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{PATH}}/api/v1/commands/customers/101",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"commands",
+										"customers",
+										"101"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 00:54:34 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 00:54:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Customer deleted successfully.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customer Queries",
+			"item": [
+				{
+					"name": "Get customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PATH}}/api/v1/queries/customers",
+							"host": [
+								"{{PATH}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"queries",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get customers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{PATH}}/api/v1/queries/customers",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"queries",
+										"customers"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "9",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 01:55:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 01:55:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 93,\n            \"first_name\": \"Leon\",\n            \"last_name\": \"Wiegand\",\n            \"date_of_birth\": \"1977-05-20\",\n            \"phone_number\": \"+17436817836\",\n            \"email\": \"adrain.stiedemann@stehr.com\",\n            \"bank_account_number\": \"US61440488650535467310615153\"\n        },\n        {\n            \"id\": 94,\n            \"first_name\": \"Aisha\",\n            \"last_name\": \"Tromp\",\n            \"date_of_birth\": \"1984-03-14\",\n            \"phone_number\": \"+15808330125\",\n            \"email\": \"joanie85@gmail.com\",\n            \"bank_account_number\": \"US16970436639450108691658522\"\n        },\n        {\n            \"id\": 95,\n            \"first_name\": \"Stone\",\n            \"last_name\": \"Halvorson\",\n            \"date_of_birth\": \"2013-08-07\",\n            \"phone_number\": \"+15204481519\",\n            \"email\": \"mbernier@kihn.com\",\n            \"bank_account_number\": \"US72832003385773443606736222\"\n        },\n        {\n            \"id\": 96,\n            \"first_name\": \"Oran\",\n            \"last_name\": \"Okuneva\",\n            \"date_of_birth\": \"2015-02-21\",\n            \"phone_number\": \"+18282824225\",\n            \"email\": \"reinger.julie@hotmail.com\",\n            \"bank_account_number\": \"US78222696314968164832145499\"\n        },\n        {\n            \"id\": 97,\n            \"first_name\": \"Major\",\n            \"last_name\": \"Dicki\",\n            \"date_of_birth\": \"1997-03-31\",\n            \"phone_number\": \"+15406664609\",\n            \"email\": \"kwiegand@ankunding.com\",\n            \"bank_account_number\": \"US55384821421041741917871223\"\n        },\n        {\n            \"id\": 98,\n            \"first_name\": \"Cortez\",\n            \"last_name\": \"Nader\",\n            \"date_of_birth\": \"2000-09-03\",\n            \"phone_number\": \"+15317064981\",\n            \"email\": \"clinton66@keebler.com\",\n            \"bank_account_number\": \"US67245153060175267945837711\"\n        },\n        {\n            \"id\": 99,\n            \"first_name\": \"Laurianne\",\n            \"last_name\": \"Hansen\",\n            \"date_of_birth\": \"1977-09-19\",\n            \"phone_number\": \"+12519733685\",\n            \"email\": \"beryl71@mann.org\",\n            \"bank_account_number\": \"US52045839547220500580377671\"\n        },\n        {\n            \"id\": 100,\n            \"first_name\": \"Millie\",\n            \"last_name\": \"Lakin\",\n            \"date_of_birth\": \"2007-03-08\",\n            \"phone_number\": \"+13514884997\",\n            \"email\": \"johnston.alaina@yahoo.com\",\n            \"bank_account_number\": \"US93553831692066812146687799\"\n        },\n        {\n            \"id\": 1,\n            \"first_name\": \"Boris\",\n            \"last_name\": \"Abshire\",\n            \"date_of_birth\": \"2001-02-09\",\n            \"phone_number\": \"+16813322494\",\n            \"email\": \"xzavier53@fisher.com\",\n            \"bank_account_number\": \"US29012089723598717653771189\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=1\",\n        \"last\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=12\",\n        \"prev\": null,\n        \"next\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 12,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=4\",\n                \"label\": \"4\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=5\",\n                \"label\": \"5\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=6\",\n                \"label\": \"6\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=7\",\n                \"label\": \"7\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=8\",\n                \"label\": \"8\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=9\",\n                \"label\": \"9\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=10\",\n                \"label\": \"10\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=11\",\n                \"label\": \"11\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=12\",\n                \"label\": \"12\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8001/api/v1/queries/customers?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8001/api/v1/queries/customers\",\n        \"per_page\": 9,\n        \"to\": 9,\n        \"total\": 100\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get single customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PATH}}/api/v1/queries/customers/2",
+							"host": [
+								"{{PATH}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"queries",
+								"customers",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get single customer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PATH}}/api/v1/queries/customers/2000",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"queries",
+										"customers",
+										"2000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 02:18:59 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 02:18:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The requested customer does not exist\"\n}"
+						},
+						{
+							"name": "Get single customer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PATH}}/api/v1/queries/customers/20",
+									"host": [
+										"{{PATH}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"queries",
+										"customers",
+										"20"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 02:19:11 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jul 2023 02:19:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 20,\n        \"first_name\": \"Luz\",\n        \"last_name\": \"Collier\",\n        \"date_of_birth\": \"2018-07-31\",\n        \"phone_number\": \"+13862778823\",\n        \"email\": \"dortha.roberts@yahoo.com\",\n        \"bank_account_number\": \"US26816661528777046411715100\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PATH",
+			"value": "127.0.0.1:8001",
+			"type": "string"
+		}
+	]
+}
