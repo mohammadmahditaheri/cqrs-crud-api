@@ -30,7 +30,10 @@ class MutateCustomerRequest extends FormRequest
         /**
          * in case of update
          */
-        $customer = $repository->find($this->route('customer'));
+        $customer = null;
+        if ($this->routeIs('commands.customers.update')) {
+            $customer = $repository->find($this->route('customer'));
+        }
 
         $rules = [
             'first_name' => [
