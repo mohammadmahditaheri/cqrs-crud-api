@@ -22,7 +22,7 @@ class GetCustomerQueryProvider extends ServiceProvider
             ->needs(QueryInterface::class)
             ->give(function () {
                 return $this->app->make(GetSingleCustomerQuery::class, [
-                    'customerId' => request()->route('customer'),
+                    'customerId' => request()->route('customer') ?? 1,
                     'repository' => resolve(CustomerRepositoryInterface::class)
                 ]);
             });
