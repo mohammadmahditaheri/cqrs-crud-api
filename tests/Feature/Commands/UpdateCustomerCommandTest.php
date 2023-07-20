@@ -57,6 +57,48 @@ class UpdateCustomerCommandTest extends TestCase
     }
 
     /**
+     * send request with missing parameter
+     */
+    private function updateWithMissing(string $missing): TestResponse
+    {
+        $newData = $this->data;
+        unset($newData[$missing]);
+
+        return $this->sendUpdateRequest(
+            $this->customerId,
+            $newData
+        );
+    }
+
+    /**
+     * handle generic tests
+     */
+    protected function cantUpdateWithoutMissing(string $missing)
+    {
+        // missing
+        $response = $this->updateWithMissing($missing);
+
+        $errorMessage = 'The ' . Str::replace('_', ' ', $missing) . ' field is required.';
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
+            ->assertJson([
+                'message' => $errorMessage,
+                'errors' => [
+                    $missing => [$errorMessage]
+                ]
+            ]);
+
+        // assert that the customer isn't changed
+        $this->assertDatabaseHas('customers', $this->data);
+        $this->assertDatabaseCount('customers', 1);
+    }
+
+    /**
+     * ----------------------
+     *   Test begin here
+     * ----------------------
+     */
+
+    /**
      * @test
      */
     public function it_can_update_customer_with_same_data(): void
@@ -128,31 +170,18 @@ class UpdateCustomerCommandTest extends TestCase
     }
 
     /**
-     * send request with missing parameter
+     * @test
      */
-    private function updateWithMissing(string $missing): TestResponse
+    public function it_cannot_update_nonexistent_customer(): void
     {
-        $newData = $this->data;
-        unset($newData[$missing]);
-
-        return $this->sendUpdateRequest(
-            $this->customerId,
-            $newData
+        $response = $this->sendUpdateRequest(
+            $this->customerId + 10,
+            $this->data
         );
-    }
 
-    protected function cantUpdateWithoutMissing(string $missing)
-    {
-        // missing
-        $response = $this->updateWithMissing($missing);
-
-        $errorMessage = 'The ' . Str::replace('_', ' ', $missing) . ' field is required.';
-        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
+        $response->assertStatus(Response::HTTP_NOT_FOUND)
             ->assertJson([
-                'message' => $errorMessage,
-                'errors' => [
-                    $missing => [$errorMessage]
-                ]
+                'message' => "The requested customer does not exist"
             ]);
 
         // assert that the customer isn't changed
