@@ -40,8 +40,7 @@ trait FormatsCustomerCommandResponses
     protected function deletedSuccessfully(): Response
     {
         return $this->successfulCommandResponse(
-            message: self::$deletedMessage,
-            code: SymfonyResponse::HTTP_NO_CONTENT
+            message: self::$deletedMessage
         );
     }
 }
